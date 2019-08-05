@@ -1,0 +1,16 @@
+<h3>Tweet Feed</h3>
+
+<p>Welcome, <%= @user.username %>! Here's the Tweets:<br>
+
+<% @tweets.each do |tweet| %>
+<p><a href="/tweets/<%= tweet.id %>"><%= tweet.content %></a> by <em>
+<a href="/users/<%= tweet.user.username %>"><%= tweet.user.username %></a></em></p>
+<% end %>
+
+<form action="tweets/new" method="GET">
+  <input type="submit" value="New Tweet">
+</form>
+<br>
+<form action="/logout" method="GET">
+  <input type="submit" value="Log Out">
+</form></p>
