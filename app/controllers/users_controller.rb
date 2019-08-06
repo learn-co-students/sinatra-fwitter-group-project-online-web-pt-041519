@@ -27,7 +27,6 @@ class UsersController < ApplicationController
 
   # Display user show page
   get '/users/:slug' do
-    # binding.pry
     @user = User.find_by_slug(params[:slug])
     # if logged_in?
       erb :'users/show'
