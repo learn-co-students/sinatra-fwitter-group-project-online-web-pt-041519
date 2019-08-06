@@ -46,11 +46,15 @@ class TweetsController < ApplicationController
     end 
   end
 
-  # Show edit form
+  # Show edit form if user has permission
   get '/tweets/:id/edit' do 
     if logged_in?
       @tweet = Tweet.find(params[:id])
-      erb :'/tweets/edit_tweet'
+      if @tweet && @tweet.user == current_user
+        erb :'/tweets/edit_tweet'
+      else 
+        redirect '/tweets'
+      end
     else
       redirect '/login'
     end          
