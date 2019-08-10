@@ -1,5 +1,10 @@
 class UsersController < ApplicationController
 
+    get '/users/:slug' do
+      @user = User.find_by(slug: params[:slug])
+      erb :'users/show'
+    end
+
     get '/login' do
       if logged_in?
         redirect to '/tweets'
