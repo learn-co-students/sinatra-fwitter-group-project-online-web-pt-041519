@@ -1,0 +1,5 @@
+<h2>Welcome, <%=current_user.username%>! Here are the latest tweets...</h2>
+
+<% @tweets.each do |tweet|%>
+    <p><%= tweet.content%> - <%=tweet.user.username%></p>
+<% end %>
