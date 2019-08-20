@@ -1,0 +1,12 @@
+<h2>Edit Tweet</h2>
+
+<h4>Old tweet:</h4>
+<p><%= @tweet.content%></p>
+
+<h3>Updated Tweet:</h3>
+<form action="/tweets/<%=@tweet.id%>" method="POST">
+
+  <input type="text" name="content"><br>
+  <input type="submit" name="submit" id="submit">
+
+</form>

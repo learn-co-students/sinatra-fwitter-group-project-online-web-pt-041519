@@ -1,0 +1,8 @@
+1. Create tables 
+   - Tweets table (content, user_id)
+   - Users table (username, email, password, tweet_id)
+2. Migrate Tables 
+
+3. Index.erb -> our homepage 
+4. Signup.erb -> our signup page
+   - Needs a form to sign up
