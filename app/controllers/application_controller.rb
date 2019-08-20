@@ -1,30 +1,27 @@
-require './config/environment'
 
+require './config/environment'
 class ApplicationController < Sinatra::Base
 
   configure do
+    enable :sessions
     set :public_folder, 'public'
     set :views, 'app/views'
-    enable :sessions
-    set :session_secret, "remember_not_to_use_an_easy_password_like_this"
+    set :session_secret, "password_security"
   end
 
   get '/' do
-    erb :'users/homepage'
+    erb :index
   end
 
+  # Helper methods
   helpers do
-
     def logged_in?
-      !!current_user
+      !!session[:user_id]
     end
 
     def current_user
       @current_user ||= User.find_by(id: session[:user_id]) if session[:user_id]
     end
-
   end
-
-
 
 end
