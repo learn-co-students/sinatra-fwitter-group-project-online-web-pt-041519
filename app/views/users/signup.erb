@@ -1,0 +1,35 @@
+<div class="inner">
+	<h1>Noice! Signup below and start tweeting!</h1> 
+	<form action="/signup" method="post">
+
+		<div>
+			<label for="username"></label>
+			<input name="username" id="username" type="text" placeholder="username" required>
+		</div>
+        <div>
+			<label for="email"></label>
+			<input name="email" id="email" type="text" placeholder="Email">
+		</div>
+
+		<div>
+			<label for="password"></label>
+			<input name="password" id="password" type="password" placeholder="Password" required>
+		</div>
+
+		<%# <div> 
+			<label for="password_confirmation"></label>
+			<input name="password_confirmation" id="confirm_password" type="password_confirmation" placeholder="Password" required>
+		</div> %>
+
+			<% if @user && @user.errors.any? %>
+				<% @user.errors.full_messages.each do |errmsg| %>
+					<p><%= errmsg %></p>
+				<% end %>
+			<% end %>
+			
+		<div>
+			<input value="Signup" type="submit" id="submit">
+			<input type="button"  value="Cancel" onclick="window.location.assign('/')"/>
+		</div>
+	</form>
+</div>

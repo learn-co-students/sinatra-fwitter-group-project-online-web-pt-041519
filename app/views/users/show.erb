@@ -1,0 +1,18 @@
+<h3>All Tweets for <em><%= @user.username %></em>:</h3>
+
+<ul>
+    <% @user.tweets.each do |tweet|%>
+        <li><a href="/tweets/<%= tweet.id %>"><%= tweet.content %></a></li>
+    <% end %>
+</ul>
+
+<form action="/tweets/new" method="GET">
+    <button type="submi">New Tweet</button>
+</form> 
+
+<form action="/logout" method="GET">
+    <button type="submit">Log Out</button>
+</form> 
+<form>
+     <input type="button" value="Back to Feed" onclick="window.location.assign('/tweets')">
+</form>

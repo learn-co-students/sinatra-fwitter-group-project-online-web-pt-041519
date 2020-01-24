@@ -1,0 +1,15 @@
+<h2> All users </h2>
+
+<% @users.each do |user|%>
+    <p><%= user.slug %> </p>
+<% end %> 
+
+<form action="/tweets/new" method="GET">
+    <button type="submi">New Tweet</button>
+</form> 
+
+<form action="/logout" method="GET">
+    <button type="submit">Log Out</button>
+</form> 
+
+<button onclick="window.location.assign('/tweets')">Back to Feed</button>
