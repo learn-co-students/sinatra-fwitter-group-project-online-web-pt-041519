@@ -16,6 +16,10 @@
 <form action="/logout" method="GET">
     <button type="submit">Log Out</button>
 </form> 
+  <form action="/tweets/<%= @tweet.id %>" method="POST">
+      <input type="hidden" name="_method" value="delete">
+      <button type="submit" >Delete Tweet</button>
+  </form>
 <form>
      <input type="button" value="Back to Feed" onclick="window.location.assign('/tweets')">
 </form>

@@ -4,13 +4,13 @@
   <form action="/tweets/<%= @tweet.id %>" method="POST">
     <input id="hidden" type="hidden" name="_method" value="patch">
     <input type="text" name="content" value="<%= @tweet.content %>">
-    <button type="submit">Save</button>
+    <button type="submit" id="submit">Save</button>
     
   </form>
 
   <form action="/tweets/<%= @tweet.id%>">
       <input type="hidden" name="_method" value="DELETE">
-      <button type="submit">Delete</button>
+      <button type="submit" >Delete Tweet</button>
   </form>
 
   <form>

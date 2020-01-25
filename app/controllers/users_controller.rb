@@ -1,18 +1,26 @@
 class UsersController < ApplicationController
+    
     get '/signup' do
+        # binding.pry
         if logged_in?
-            redirect to('/tweets')
+            redirect '/tweets' 
         else
             erb :'/users/signup'
         end
     end
 
     post '/signup' do
-        if !logged_in? && !params[:username].empty? && !params[:email].empty? && !params[:password].empty?
+        # binding.pry
+        if params[:username] != "" && params[:email] != "" && params[:password] != ""
+            # binding.pry
             nice_params = cleanse(params)
-            @user = User.create(nice_params)
-            session[:user_id] = @user.id
-            redirect to('/tweets')  
+            @user = User.new(nice_params)
+            if @user.save
+                session[:user_id] = @user.id
+                redirect '/tweets' 
+            else
+                erb :"/users/signup" 
+            end
         else
             redirect  "/signup"
         end
@@ -23,7 +31,7 @@ class UsersController < ApplicationController
             @failed = false
             redirect "/tweets"
         else 
-            erb :"users/login"
+            erb :"/users/login"
         end
     end
 
@@ -53,6 +61,6 @@ class UsersController < ApplicationController
 
     get '/users' do
         @users = User.all
-        erb :'users/index'
+        erb :'/users/index'
     end
 end

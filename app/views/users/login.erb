@@ -18,7 +18,7 @@
 				<p> Oops! there is something wrong with your username and password combination.<br> Check your spelling and make sure you have signed up :)</p>
 			<% end %>
 		<div>
-			<input value="Log In" type="submit">
+			<input value="Log In" id="submit" type="submit">
 			<input type="button"  value="Sign Up" onclick="window.location.assign('/signup')" />
 		<% if logged_in? %>
           	<input type="button"  value="Log Out" onclick="window.location.assign('/logout')" />

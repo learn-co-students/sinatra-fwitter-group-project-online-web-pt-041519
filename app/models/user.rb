@@ -2,7 +2,7 @@ class User < ActiveRecord::Base
   has_secure_password
   validates :password, presence: true
   validates :email, presence: true
-  validates :username, presence: true, uniqueness: true
+  validates :username, presence: true
 
 
   has_many :tweets
@@ -12,6 +12,6 @@ class User < ActiveRecord::Base
   end
 
   def self.find_by_slug(argSlug)
-    self.all.find{|user| user.username == argSlug}
+    self.all.find{|user| user.slug == argSlug}
   end
 end
