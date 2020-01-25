@@ -1,0 +1,24 @@
+<% if logged_in? %>
+    <h1>Edit Tweet</h1>
+  
+  <form action="/tweets/<%= @tweet.id %>" method="POST">
+    <input id="hidden" type="hidden" name="_method" value="patch">
+    <input type="text" name="content" value="<%= @tweet.content %>">
+    <button type="submit" id="submit">Save</button>
+    
+  </form>
+
+  <form action="/tweets/<%= @tweet.id%>">
+      <input type="hidden" name="_method" value="DELETE">
+      <button type="submit" >Delete Tweet</button>
+  </form>
+
+  <form>
+     <input type="button" value="Back to Feed" onclick="window.location.assign('/tweets')">
+  </form>
+  <button value="Log Out" onclick="window.location.assign('/logout')"/>Log Out</button>
+
+<% else %>
+    <h1> 
+    You Must Be Logged in to Edit Tweets </h1>
+<% end %>

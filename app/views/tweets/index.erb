@@ -1,0 +1,19 @@
+
+<div>
+    <h1> Welcome, here are latest tweets</h1>
+
+<% @tweets.each do |tweet|%>
+    <p><a href="/tweets/<%= tweet.id %>"><%= tweet.content %></a> by <em>
+    <a href="/users/<%= tweet.user.username %>"><%= tweet.user.slug %></a></em></p>
+<% end %>
+
+<form action="tweets/new" method="GET">
+  <button type="submit" >New Tweet</button>
+</form>
+
+<form action="/logout" method="GET">
+  <button type="submit" >Log Out</button>
+</form></p>
+</div>
+
+

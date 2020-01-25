@@ -1,0 +1,29 @@
+<div>
+    <h4> Edited Tweet by: <%= @tweet.user.username %> </h4>
+    <p>
+        "<%= @tweet.content %>"
+    </p>
+</div>
+
+<form action="/tweets/<%= @tweet.id%>/edit" method="get">
+    <input type="submit" value="Edit Tweet"> 
+</form>
+
+<form action="/tweets/new" method="GET">
+    <button type="submi">New Tweet</button>
+</form> 
+
+<form action="/logout" method="GET">
+    <button type="submit">Log Out</button>
+</form> 
+  <form action="/tweets/<%= @tweet.id %>" method="POST">
+      <input type="hidden" name="_method" value="delete">
+      <button type="submit" >Delete Tweet</button>
+  </form>
+<form>
+     <input type="button" value="Back to Feed" onclick="window.location.assign('/tweets')">
+</form>
+
+
+
+
